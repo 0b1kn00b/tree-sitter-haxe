@@ -1,0 +1,63 @@
+===================
+class extends
+===================
+
+class Test extends UnderThing implements UnderThingApi{
+
+}
+---
+ (module
+      (class_declaration
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier)
+        (block)))
+
+      
+===================
+@class.outer
+===================
+
+class Test{
+
+}
+
+---
+ (module
+      (class_declaration
+        (keyword)
+        (identifier)
+        (block)))
+
+=====================
+deep generics are alright
+=====================
+  var a : Option<Array<T>>;
+---
+ (module
+      (variable_declaration
+        (keyword)
+        (identifier)
+        (type
+          (complex_type
+            (identifier)
+            (complex_type
+          (identifier)
+              (complex_type
+                (identifier)))))))
+              
+====================
+types assigned
+====================
+class Test{
+  var a : Bool = true;
+}
+
+=====================
+variable parameter looks like.
+=====================
+
+var x : Array<T> = [];

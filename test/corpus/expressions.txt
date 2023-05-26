@@ -108,7 +108,7 @@ runtime type check
 
 (module 
   (runtime_type_check_expression
-    (identifier) (type (identifier))
+    (identifier) (type (complex_type (identifier)))
   )
 )
 

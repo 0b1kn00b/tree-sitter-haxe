@@ -148,9 +148,14 @@ const haxe_grammar = {
     _lhs_expression: ($) => prec(1, choice($.identifier, $.member_expression)),
 
     builtin_type: ($) => prec.right(choice(...builtins)),
+    complex_type: ($) =>
+      prec.right(seq(
+        $._lhs_expression,
+        optional(seq('<',$.complex_type,'>'))
+      )),
     type: ($) => prec.right(seq(
       choice(
-        field('type_name', $._lhs_expression),
+        field('type_name', $.complex_type),
         field('built_in', alias($.builtin_type, $.identifier))
       ),
       optional($.type_params)
